@@ -4,6 +4,7 @@ const flights = require("./controllers/flightController");
 const models = require("./models/Flight");
 const routes = require("./routes/flightRoute");
 const _ = require("lodash");
+const {v4:uuid} = require("uuid");
 
 const app = express();
 
@@ -23,7 +24,9 @@ app.get("/flight", (req, res) => {
     });
 });
 app.post("/bookflight", (req, res) =>{
-    
+    const id = uuid();
+    console.log(id);
+    res.sendStatus(301);
 });
 app.use("/", routes);
 
